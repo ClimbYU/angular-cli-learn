@@ -19,6 +19,9 @@ import {
     BaPageTopComponent,
     BaMsgCenterComponent
 } from './components';
+import {
+   BaProfilePicturePipe 
+  } from './pipes';
 
 const NGA_COMPONENTS =[
     BarSidebarComponent,
@@ -26,9 +29,14 @@ const NGA_COMPONENTS =[
     BaMsgCenterComponent
 ]
 
+const NGA_PIPES = [
+  BaProfilePicturePipe
+];
+
 @NgModule({
     declarations:[
         ...NGA_COMPONENTS,
+        ...NGA_PIPES
     ],
     imports:[
         CommonModule,
@@ -36,7 +44,8 @@ const NGA_COMPONENTS =[
     ],
     exports:[
        // 需要暴露出去外面才可以使用自定义标签
-         ...NGA_COMPONENTS
+         ...NGA_COMPONENTS,
+         ...NGA_PIPES
     ]
 })
 
