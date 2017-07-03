@@ -1,0 +1,5 @@
+<ul id="al-sidebar-list" class="al-sidebar-list">
+    <app-ba-menu-item [menuItem]="item" (itemHover)="hoverItem($event)" (toggleSubMenu)="toggleSubMenu($event)" *ngFor="let item of menuItems"></app-ba-menu-item>
+</ul>
+<div class="sidebar-hover-elem" [ngStyle]="{top: hoverElemTop + 'px', height: hoverElemHeight + 'px'}" [ngClass]="{'show-hover-elem': showHoverElem }">
+</div>

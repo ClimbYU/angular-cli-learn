@@ -10,6 +10,12 @@ import {PagesModule} from './pages/pages.module';
 import {routing} from  './app.routing';
 import { NgaModule } from './theme/nga.module';
 
+import { GlobalState } from './global.state';
+
+const APP_PROVIDERS = [
+  GlobalState
+];
+
 
 @NgModule({
   declarations: [
@@ -24,7 +30,9 @@ import { NgaModule } from './theme/nga.module';
     // NgbModule.forRoot(),
     // RouterModule
   ],
-  providers: [],
+  providers: [
+    APP_PROVIDERS
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

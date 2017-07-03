@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Routes } from '@angular/router';
+
+import { BaMenuService } from '../theme';
+import { PAGES_MENU } from './pages.menu';
 
 @Component({
   selector: 'app-pages',
@@ -6,14 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pages.component.scss'],
   template:`
     <app-bar-sidebar></app-bar-sidebar>
-     <app-ba-page-top></app-ba-page-top>
+    <app-ba-page-top></app-ba-page-top>
   `
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _menuService: BaMenuService,) {
+  }
 
   ngOnInit() {
+    this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
   }
 
 }

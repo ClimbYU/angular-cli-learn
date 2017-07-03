@@ -17,26 +17,39 @@ import {
 import {
     BarSidebarComponent,
     BaPageTopComponent,
-    BaMsgCenterComponent
+    BaMsgCenterComponent,
+    BaMenuComponent,
+    BaMenuItemComponent
 } from './components';
+
 import {
    BaProfilePicturePipe 
   } from './pipes';
 
+import {
+  BaMenuService
+}from './services'
+
 const NGA_COMPONENTS =[
     BarSidebarComponent,
     BaPageTopComponent,
-    BaMsgCenterComponent
+    BaMsgCenterComponent,
+    BaMenuComponent,
+    BaMenuItemComponent
 ]
 
 const NGA_PIPES = [
   BaProfilePicturePipe
 ];
 
+const NGA_SERVICES = [
+  BaMenuService
+];
+
 @NgModule({
     declarations:[
         ...NGA_COMPONENTS,
-        ...NGA_PIPES
+        ...NGA_PIPES,
     ],
     imports:[
         CommonModule,
@@ -53,12 +66,12 @@ export class NgaModule {
   static forRoot(): ModuleWithProviders {
     return <ModuleWithProviders> {
       ngModule: NgaModule,
-      // providers: [
-      //   BaThemeConfigProvider,
-      //   BaThemeConfig,
-      //   ...NGA_VALIDATORS,
-      //   ...NGA_SERVICES
-      // ],
+      providers: [
+        // BaThemeConfigProvider,
+        // BaThemeConfig,
+        // ...NGA_VALIDATORS,
+        ...NGA_SERVICES
+      ],
     };
   }
 }
