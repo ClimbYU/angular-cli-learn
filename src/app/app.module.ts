@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PagesComponent } from './pages/pages.component';
 import {PagesModule} from './pages/pages.module';
+import { TranslateService } from '@ngx-translate/core';
 // 引入路由
 import {routing} from  './app.routing';
 import { NgaModule } from './theme/nga.module';
@@ -27,6 +29,7 @@ const APP_PROVIDERS = [
     routing,
     PagesModule,
     NgaModule.forRoot(),
+    HttpModule
     // NgbModule.forRoot(),
     // RouterModule
   ],

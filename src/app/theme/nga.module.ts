@@ -3,7 +3,7 @@ import { CommonModule }  from '@angular/common';
 // import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // import { NgUploaderModule } from 'ngx-uploader';
-// import { AppTranslationModule } from '../app.translation.module';
+import { AppTranslationModule } from '../app.translation.module';
 
 
 import {
@@ -54,6 +54,7 @@ const NGA_SERVICES = [
     imports:[
         CommonModule,
         RouterModule,
+        AppTranslationModule
     ],
     exports:[
        // 需要暴露出去外面才可以使用自定义标签

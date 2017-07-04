@@ -15,13 +15,40 @@ export class BaMenuComponent implements OnInit {
 
   @Input() sidebarCollapsed:boolean = false;
   @Input() menuHeight: number;
+  @Output() expandMenu = new EventEmitter<any>();
 
 
   public menuItems: any[];
   protected _menuItemsSub: Subscription;
+  public showHoverElem: boolean;
+  public hoverElemHeight: number;
+  public hoverElemTop: number;
   
   constructor(private _service: BaMenuService, private _state: GlobalState) { 
     
+  }
+
+  public hoverItem($event): void {
+    this.showHoverElem = true;
+    this.hoverElemHeight = $event.currentTarget.clientHeight;
+    // TODO: get rid of magic 66 constant
+    this.hoverElemTop = $event.currentTarget.getBoundingClientRect().top - 66;
+  }
+
+   public toggleSubMenu($event): boolean {
+    let submenu = jQuery($event.currentTarget).next();
+
+    if (this.sidebarCollapsed) {
+      this.expandMenu.emit(null);
+      if (!$event.item.expanded) {
+        $event.item.expanded = true;
+      }
+    } else {
+      $event.item.expanded = !$event.item.expanded;
+      submenu.slideToggle();
+    }
+
+    return false;
   }
 
   public updateMenu(newMenuItems) {

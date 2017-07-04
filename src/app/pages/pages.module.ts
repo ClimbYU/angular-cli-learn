@@ -12,12 +12,14 @@ import { MapsComponent } from './maps/maps.component';
 import { routing } from './pages.routing';
 import { PagesComponent } from './pages.component';
 import { NgaModule } from '../theme/nga.module';
+import { AppTranslationModule } from '../app.translation.module';
 
 @NgModule({
   imports: [
     CommonModule,
     routing,
     NgaModule,
+    AppTranslationModule
   ],
   declarations: 
   [
