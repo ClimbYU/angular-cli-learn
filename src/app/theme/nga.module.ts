@@ -14,12 +14,16 @@ import {
   BaThemeConfigProvider
 } from './theme.configProvider';
 
+import { BaCardBlur } from './components/ba-card/baCardBlur.directive';
+
 import {
     BarSidebarComponent,
     BaPageTopComponent,
     BaMsgCenterComponent,
     BaMenuComponent,
-    BaMenuItemComponent
+    BaMenuItemComponent,
+    BaContentTopComponent,
+    BaCardComponent
 } from './components';
 
 import {
@@ -28,13 +32,15 @@ import {
 
 import {
   BaMenuService
-}from './services'
+}from './services';
 
 const NGA_COMPONENTS =[
     BarSidebarComponent,
     BaPageTopComponent,
     BaMsgCenterComponent,
     BaMenuComponent,
+    BaContentTopComponent,
+    BaCardComponent,
     BaMenuItemComponent
 ]
 
@@ -46,10 +52,15 @@ const NGA_SERVICES = [
   BaMenuService
 ];
 
+const NGA_DIRECTIVES = [
+  BaCardBlur
+];
+
 @NgModule({
     declarations:[
         ...NGA_COMPONENTS,
         ...NGA_PIPES,
+        ...NGA_DIRECTIVES
     ],
     imports:[
         CommonModule,
@@ -59,7 +70,8 @@ const NGA_SERVICES = [
     exports:[
        // 需要暴露出去外面才可以使用自定义标签
          ...NGA_COMPONENTS,
-         ...NGA_PIPES
+         ...NGA_PIPES,
+         ...NGA_DIRECTIVES 
     ]
 })
 

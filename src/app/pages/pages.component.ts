@@ -11,6 +11,12 @@ import { PAGES_MENU } from './pages.menu';
   template:`
     <app-bar-sidebar></app-bar-sidebar>
     <app-ba-page-top></app-ba-page-top>
+     <div class="al-main">
+      <div class="al-content">
+        <app-ba-content-top></app-ba-content-top>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   `
 })
 export class PagesComponent implements OnInit {
